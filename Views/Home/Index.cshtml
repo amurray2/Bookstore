@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IQueryable<Book>
+@*The table contains some bootstrap. For example when the user hovers over a record the row will be highlighted.*@
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light page-title">Welcome to My Online Bookstore</h1>
+                <p class="lead pagedescription">Take a look at my some of my favorite books in the table below</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="container">
+            <table class="table table-hover table-bordered">
+                <thead style="background-color:lightblue;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author Name</th>
+                        <th scope="col">Publisher</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var b in Model)
+                    {
+                        <tr>
+                            <th scope="row">@b.BookId</th>
+                            <td>@b.Title</td>
+                            <td>@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</td>
+                            <td>@b.Publisher</td>
+                            <td>@b.ISBN</td>
+                            @if (b.Fiction)
+                            {
+                                <td>Fiction</td>
+                            }
+                            else
+                            {
+                                <td>Non-Fiction</td>
+                            }
+                            <td>@b.Category</td>
+                            <td>$@b.Price</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
