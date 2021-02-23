@@ -8,6 +8,7 @@ namespace Bookstore.Models
 {
     public class Book
     {
+        //Testing my github branch
         //This is my model
         [Key]
         public int BookId { get; set; } //This is my Private key
