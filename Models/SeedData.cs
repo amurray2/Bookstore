@@ -30,7 +30,8 @@ namespace Bookstore.Models
                         ISBN = "978-0451419439",
                         Fiction = true,
                         Category = "Classic",
-                        Price = 9.95m
+                        Price = 9.95m,
+                        NumberPages = 1488
                     },
 
                     new Book
@@ -43,7 +44,8 @@ namespace Bookstore.Models
                         ISBN = "978-0743270755",
                         Fiction = false,
                         Category = "Biography",
-                        Price = 14.58m
+                        Price = 14.58m,
+                        NumberPages = 944
                     },
 
                     new Book
@@ -55,7 +57,8 @@ namespace Bookstore.Models
                         ISBN = "978-0553384611",
                         Fiction = false,
                         Category = "Biography",
-                        Price = 21.54m
+                        Price = 21.54m,
+                        NumberPages = 832
                     },
 
                     new Book
@@ -68,7 +71,8 @@ namespace Bookstore.Models
                         ISBN = "978-0812981254",
                         Fiction = false,
                         Category = "Biography",
-                        Price = 11.61m
+                        Price = 11.61m,
+                        NumberPages = 864
                     },
 
                     new Book
@@ -80,7 +84,8 @@ namespace Bookstore.Models
                         ISBN = "978-0812974492",
                         Fiction = false,
                         Category = "Historical",
-                        Price = 13.33m
+                        Price = 13.33m,
+                        NumberPages = 528
                     },
 
                     new Book
@@ -92,7 +97,8 @@ namespace Bookstore.Models
                         ISBN = "978-0804171281",
                         Fiction = true,
                         Category = "Historical Fiction",
-                        Price = 15.95m
+                        Price = 15.95m,
+                        NumberPages = 288
                     },
 
                     new Book
@@ -104,7 +110,8 @@ namespace Bookstore.Models
                         ISBN = "978-1455586691",
                         Fiction = false,
                         Category = "Self-Help",
-                        Price = 14.99m
+                        Price = 14.99m,
+                        NumberPages = 304
                     },
 
                     new Book
@@ -116,7 +123,8 @@ namespace Bookstore.Models
                         ISBN = "978-1455523023",
                         Fiction = false,
                         Category = "Self-Help",
-                        Price = 21.66m
+                        Price = 21.66m,
+                        NumberPages = 240
                     },
 
                     new Book
@@ -128,7 +136,8 @@ namespace Bookstore.Models
                         ISBN = "978-1591847984",
                         Fiction = false,
                         Category = "Business",
-                        Price = 29.16m
+                        Price = 29.16m,
+                        NumberPages = 400
                     },
 
                     new Book
@@ -140,7 +149,49 @@ namespace Bookstore.Models
                         ISBN = "978-0553393613",
                         Fiction = true,
                         Category = "Thrillers",
-                        Price = 15.03m
+                        Price = 15.03m,
+                        NumberPages = 642
+                    },
+
+                    new Book
+                    {
+                        Title = "The Hobbit",
+                        AuthFirstName = "J. R.",
+                        AuthMiddleName = "R.",
+                        AuthLastName = "Tolkien",
+                        Publisher = "Allen & Unwin",
+                        ISBN = "978-0551303613",
+                        Fiction = true,
+                        Category = "Fantasy",
+                        Price = 17.95m,
+                        NumberPages = 310
+                    },
+
+                    new Book
+                    {
+                        Title = "To Kill a Mockingbird",
+                        AuthFirstName = "Harper",
+                        AuthLastName = "Lee",
+                        Publisher = "J.B. Lippincott & Co.",
+                        ISBN = "978-0551301067",
+                        Fiction = true,
+                        Category = "Thriller/Legal Story",
+                        Price = 6.49m,
+                        NumberPages = 281
+                    },
+
+                    new Book
+                    {
+                        Title = "My Side of the Mountain",
+                        AuthFirstName = "Jean",
+                        AuthMiddleName = "Craighead",
+                        AuthLastName = "George",
+                        Publisher = "E.P. Dutton",
+                        ISBN = "978-8531301667",
+                        Fiction = true,
+                        Category = "Adventure",
+                        Price = 3.39m,
+                        NumberPages = 177
                     }
                 );
 

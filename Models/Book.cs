@@ -30,5 +30,7 @@ namespace Bookstore.Models
         public string Category { get; set; }
         [Required]
         public decimal Price { get; set; }
+        [Required]
+        public int NumberPages { get; set; }
     }
 }
