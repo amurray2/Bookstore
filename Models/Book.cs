@@ -8,6 +8,7 @@ namespace Bookstore.Models
 {
     public class Book
     {
+        //Testing my github branch
         //This is my model
         [Key]
         public int BookId { get; set; } //This is my Private key
@@ -29,5 +30,7 @@ namespace Bookstore.Models
         public string Category { get; set; }
         [Required]
         public decimal Price { get; set; }
+        [Required]
+        public int NumberPages { get; set; }
     }
 }

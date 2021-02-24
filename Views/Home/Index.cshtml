@@ -1,7 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IQueryable<Book>
+@model BookListViewModel
+@*New Bootstrap terms used
+    - I created a bootstrap table.
+    - For my hidden card that only appears if you hover over the main card I used align-self-center
+    - When you hover over the rows on my table you they will highlight and that is done through the table-hover class
+*@
+
 @*The table contains some bootstrap. For example when the user hovers over a record the row will be highlighted.*@
 <header class="masthead">
     <div class="container h-100">
@@ -30,12 +36,13 @@
                         <th scope="col">Classification</th>
                         <th scope="col">Category</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Page Count</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var b in Model)
+                    @foreach (var b in Model.Books)
                     {
-                        <tr>
+                        <tr href="@b.BookId">
                             <th scope="row">@b.BookId</th>
                             <td>@b.Title</td>
                             <td>@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</td>
@@ -51,10 +58,58 @@
                             }
                             <td>@b.Category</td>
                             <td>$@b.Price</td>
+                            <td>@b.NumberPages</td>
                         </tr>
                     }
                 </tbody>
             </table>
+        </div>
+
+
+        @foreach (var b in Model.Books)
+        {
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <div class="card" style="width: 30rem;" id="card" onmouseover="myFunction(@b.BookId)" onmouseout="myFunction2(@b.BookId)">
+                            <div class="card-body badge-light">
+                                <h5 class="card-title">@b.Title</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</li>
+                                <li class="list-group-item">$@b.Price</li>
+                                @if (b.Fiction)
+                                {
+                                    <li class="list-group-item">Fiction @b.Category</li>
+                                }
+                                else
+                                {
+                                    <li class="list-group-item">Non-Fiction @b.Category</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <div class="card" style="width: 20rem; visibility:hidden;" id="card2-@b.BookId">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Publisher: @b.Publisher</li>
+                                <li class="list-group-item">@b.ISBN</li>
+                                <li class="list-group-item">@b.NumberPages Pages</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        }
+        <br />
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6" style="text-align:center">
+                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+                         class="btn-group pull-right m-1"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
