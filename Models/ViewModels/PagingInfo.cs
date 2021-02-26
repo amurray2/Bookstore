@@ -8,6 +8,7 @@ namespace Bookstore.Models.ViewModels
 {
     public class PagingInfo
     {
+        //Test
         public int TotalNumItems { get; set; }
         public int ItemsPerPage { get; set; }
         public int CurrentPage { get; set; }
