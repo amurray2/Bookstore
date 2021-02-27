@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-@RenderBody()
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="font-weight-light page-title">Welcome to My Online Bookstore</h1>
+                    <p class="lead pagedescription">Take a look at my some of my favorite books in the table below</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-3 mb-3">
+                <vc:navigation-menu />
+            </div>
+            <div class="col-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
