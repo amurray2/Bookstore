@@ -57,6 +57,23 @@ namespace Bookstore
 
             app.UseEndpoints(endpoints =>
             {
+                //modifying endpoints to make the url more readable.
+                //Endpoints are so people can beautify the address bar and help route to locations.
+                endpoints.MapControllerRoute(
+                    "catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "page",
+                    "Books/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
                 endpoints.MapControllerRoute(
                     "pagination",
                     "Books/P{page}",

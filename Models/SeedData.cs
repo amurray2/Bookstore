@@ -175,7 +175,7 @@ namespace Bookstore.Models
                         Publisher = "J.B. Lippincott & Co.",
                         ISBN = "978-0551301067",
                         Fiction = true,
-                        Category = "Thriller/Legal Story",
+                        Category = "Thrillers",
                         Price = 6.49m,
                         NumberPages = 281
                     },

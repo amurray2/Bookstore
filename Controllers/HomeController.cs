@@ -24,18 +24,19 @@ namespace Bookstore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             return View(new BookListViewModel
             {
-                Books = _repository.Books.OrderBy(b => b.BookId).Skip((page - 1) * pageSize).Take(pageSize),
+                Books = _repository.Books.Where(b => category == null || b.Category == category).OrderBy(b => b.BookId).Skip((page - 1) * pageSize).Take(pageSize),
 
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    TotalNumItems = category == null ? _repository.Books.Count() : _repository.Books.Where(b => b.Category == category).Count()
+                },
+                CurrentCategory = category
             });
         }
 

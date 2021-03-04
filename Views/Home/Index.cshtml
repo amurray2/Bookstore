@@ -9,107 +9,70 @@
 *@
 
 @*The table contains some bootstrap. For example when the user hovers over a record the row will be highlighted.*@
-<header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12 text-center">
-                <h1 class="font-weight-light page-title">Welcome to My Online Bookstore</h1>
-                <p class="lead pagedescription">Take a look at my some of my favorite books in the table below</p>
-            </div>
-        </div>
-    </div>
-</header>
-
 <!-- Page Content -->
-<section class="py-5">
     <div class="container">
 
-        <div class="container">
-            <table class="table table-hover table-bordered">
-                <thead style="background-color:lightblue;">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Author Name</th>
-                        <th scope="col">Publisher</th>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Classification</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Page Count</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var b in Model.Books)
-                    {
-                        <tr href="@b.BookId">
-                            <th scope="row">@b.BookId</th>
-                            <td>@b.Title</td>
-                            <td>@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</td>
-                            <td>@b.Publisher</td>
-                            <td>@b.ISBN</td>
-                            @if (b.Fiction)
-                            {
-                                <td>Fiction</td>
-                            }
-                            else
-                            {
-                                <td>Non-Fiction</td>
-                            }
-                            <td>@b.Category</td>
-                            <td>$@b.Price</td>
-                            <td>@b.NumberPages</td>
+        @*I would like to keep my table view commented instead of deleted so I can reference it for other things*@
+
+        @*<div class="container">
+                <table class="table table-hover table-bordered">
+                    <thead style="background-color:lightblue;">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author Name</th>
+                            <th scope="col">Publisher</th>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Classification</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Page Count</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-
-
-        @foreach (var b in Model.Books)
-        {
-            <div class="container">
-                <div class="row justify-content-around">
-                    <div class="col-4">
-                        <div class="card" style="width: 30rem;" id="card" onmouseover="myFunction(@b.BookId)" onmouseout="myFunction2(@b.BookId)">
-                            <div class="card-body badge-light">
-                                <h5 class="card-title">@b.Title</h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</li>
-                                <li class="list-group-item">$@b.Price</li>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model.Books)
+                        {
+                            <tr href="@b.BookId">
+                                <th scope="row">@b.BookId</th>
+                                <td>@b.Title</td>
+                                <td>@b.AuthFirstName @b.AuthMiddleName @b.AuthLastName</td>
+                                <td>@b.Publisher</td>
+                                <td>@b.ISBN</td>
                                 @if (b.Fiction)
                                 {
-                                    <li class="list-group-item">Fiction @b.Category</li>
+                                    <td>Fiction</td>
                                 }
                                 else
                                 {
-                                    <li class="list-group-item">Non-Fiction @b.Category</li>
+                                    <td>Non-Fiction</td>
                                 }
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-4 align-self-center">
-                        <div class="card" style="width: 20rem; visibility:hidden;" id="card2-@b.BookId">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Publisher: @b.Publisher</li>
-                                <li class="list-group-item">@b.ISBN</li>
-                                <li class="list-group-item">@b.NumberPages Pages</li>
-                            </ul>
-                        </div>
-                    </div>
+                                <td>@b.Category</td>
+                                <td>$@b.Price</td>
+                                <td>@b.NumberPages</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>*@
+        <div class="container">
+
+            @foreach (var b in Model.Books)
+            {
+                <div class="row justify-content-center">
+                    <partial name="BookSummary" model="b" />
                 </div>
                 <br />
-            </div>
-        }
+            }
+        </div>
         <br />
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-start">
                 <div class="col-6" style="text-align:center">
-                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-                         class="btn-group pull-right m-1"></div>
+                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+                         page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1"></div>
                 </div>
             </div>
         </div>
+        <br />
     </div>
-</section>
